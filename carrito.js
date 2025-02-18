@@ -1,5 +1,6 @@
 
-/*
+//---------------CARRITO DE PRODUCTOS-------------------------
+
 const carrito = []
 const productos = [
     {id:1568, nombre:"Auricular", Marca:"Apple", Valor:452361, Cuotas:6},
@@ -41,13 +42,16 @@ function EliminarProdcuto() {
     }
 }
 
+//------------HASTA ACA FUNCIONA BIEN. PERO PARA UN SOLO PRODUCTO------------------
+
+
 const total = carrito.reduce((acumulador, articulo) => acumulador + productos.precio, 0);
 alert(`Este es el costo total ${total}`);
 
 
 eliminar.addEventListener("click", EliminarProdcuto);
 
-/*
+
 const totalArticulo = productos.reduce((contador, articulo) => contador += `${articulo.precio * articulo.cantidad}`)
 alert(`Este es el listado de productos ${carritoDeProductos}`);
 
@@ -57,8 +61,8 @@ alert(`Esta es la lista de productos ${articulo.id}`);
 const totalCarrito = carrito.reduce((contador) => contador += `${articulo.precio}`);
 */
 
-//--------------------------- LOGIN USUARIO Y CONTRASEÑA--------------------------
 
+//--------------------------- LOGIN USUARIO Y CONTRASEÑA--------------------------
 
 const usuario = "Gonzalo";
 const contraseña = "0000";
@@ -69,10 +73,15 @@ while (intentos > 0) {
     let contraseñaingresada = prompt("Ingrese su contraseña:");
 
     if (usuarioingresado === usuario && contraseñaingresada === contraseña) {
-        alert("Bienvenido a la tierra prometida!");
+        alert(`Bienvenido ${usuario}`);
         break;
     }
     else {
-        alert(`Usuario o contraseña incorrectos`);
+        intentos--;
+        if (intentos > 0) {
+            alert(`Usuario o contraseña incorrectos`);
+        } else {
+            alert("Se bloqueó el ingreso por demasiados intentos fallidos.");
+        }
     }
 }
